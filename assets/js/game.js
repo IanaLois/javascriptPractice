@@ -8,8 +8,20 @@ function drawBox(container, row, col, letter = '') {
     return box;
 }
 
-function startup() {
+function drawGrid(container) {
+    const grid = document.createElement('div');
+    grid.className = 'grid';
 
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 5; j++) {
+            drawBox(grid, i, j);
+        }
+    }
+
+    container.appendChild(grid);
+}
+
+function startup() {
 }
 
 startup();
