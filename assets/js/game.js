@@ -22,6 +22,8 @@ function drawGrid(container) {
 }
 
 function startup() {
+    const game = document.getElementById('game');
+    drawGrid(game);
 }
 
 startup();
