@@ -41,9 +41,40 @@ function drawGrid(container) {
     container.appendChild(grid);
 }
 
+function registerKeyboardEvents() {
+    document.body.onkeydown = function (e) {
+        var key = e.key;
+
+        if (key === 'Enter') {
+            if (state.currentCol === 5) {
+                var word = getCurrentWord();
+                if (isWordValid(word)) {
+                    revealWord(word);
+                    state.currentRow++;
+                    state.currentCol = 0;
+                } else {
+                    alert('Not a valid word.');
+                }
+            }
+        }
+
+        if (key === 'Backspace') {
+            removeLetter();
+        }
+
+        if (isLetter(key)) {
+            addLetter(key);
+        }
+
+        updateGrid();
+    };
+}
+
 function startup() {
     const game = document.getElementById('game');
     drawGrid(game);
+
+    registerKeyboardEvents();
 }
 
 startup();
