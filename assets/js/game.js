@@ -1,3 +1,15 @@
+const state = {
+    grid: [['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', '']],
+    currentRow: 0,
+    currentCol: 0
+};
+
+
 function drawBox(container, row, col, letter = '') {
     const box = document.createElement('div');
     box.className = 'box';
